@@ -1,54 +1,69 @@
-# React + TypeScript + Vite
+Overview
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is an interactive e-commerce dashboard that visualizes key performance indicators (KPIs) such as daily sales, monthly sales, number of transactions, revenue trends, and average order value (AOV). It uses React.js and Recharts for data visualization.
 
-Currently, two official plugins are available:
+Approach
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. Data Handling & Filtering
 
-## Expanding the ESLint configuration
+The application processes raw sales data and categorizes it into daily and monthly sales.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+It filters data based on user-selected date ranges.
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+Data is structured to support multiple KPIs.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+2. Visualization with Recharts
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Daily Sales Chart: Displays total daily sales over a selected period.
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+Monthly Sales Chart: Aggregates daily sales into monthly trends.
+
+Transactions Chart: Shows the number of transactions per day and per month.
+
+Revenue Trends Chart: Visualizes total revenue trends.
+
+Average Order Value (AOV) Chart: Calculates and displays the AOV.
+
+3. Components & Structure
+
+SalesChart.tsx: Reusable chart component for displaying various KPIs.
+
+DateFilter.tsx: Allows users to filter data by selecting a date range.
+
+Dashboard.tsx: The main dashboard component that integrates all visualizations.
+
+Installation & Setup
+
+1. Clone the Repository
+
+cd ecommerce-dashboard
+
+2. Install Dependencies
+
+npm install
+
+This will install all required dependencies listed in package.json.
+
+3. Run the Application
+
+npm run dev
+
+This will start the development server. Open http://localhost:5173/ in your browser.
+
+How to Use
+
+Select a date range using the date filter.
+
+View KPIs such as sales, transactions, revenue, and AOV.
+
+Hover over charts to see exact values.
+
+Technologies Used
+
+React.js - Frontend framework
+
+Recharts - Data visualization
+
+TypeScript - Type safety
+
+
